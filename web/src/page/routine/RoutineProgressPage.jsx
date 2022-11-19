@@ -2,8 +2,9 @@ import HeadBox from "../../component/styled/HeadBox";
 import Head from "../../component/styled/Head";
 import BodyBox from "../../component/styled/BodyBox";
 import FootBox from "../../component/styled/FootBox";
-import PageMoveButton from "../../component/domain/move/PageMoveButton";
+import PageMoveButton from "../../component/plain/PageMoveButton";
 import Frame from "../../component/styled/Frame";
+import RoutineReadList2 from "../../component/domain/routine/RoutineReadList2";
 
 const RoutineProgressPage = () => {
     return (
@@ -12,10 +13,7 @@ const RoutineProgressPage = () => {
                 <Head>루틴 진행</Head>
             </HeadBox>
             <BodyBox>
-                <PageMoveButton
-                    path={"/workout/progress/1"}
-                    name={"가슴 루틴"}
-                />
+                <RoutineReadList2/>
             </BodyBox>
             <FootBox>
                 <PageMoveButton

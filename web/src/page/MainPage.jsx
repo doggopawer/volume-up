@@ -3,7 +3,7 @@ import HeadBox from "../component/styled/HeadBox";
 import FootBox from "../component/styled/FootBox";
 import BodyBox from "../component/styled/BodyBox";
 import Head from "../component/styled/Head";
-import PageMoveButton from "../component/domain/move/PageMoveButton";
+import PageMoveButton from "../component/plain/PageMoveButton";
 
 const MainPage = () => {
   return (

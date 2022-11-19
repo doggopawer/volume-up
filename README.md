@@ -8,11 +8,10 @@
 <img src="./design/wireframe/05_루틴 추가.jpg">
 <img src="./design/wireframe/06_운동 관리.jpg">
 <img src="./design/wireframe/07_운동 추가.jpg">
+<img src="./design/wireframe/12_운동 수정-삭제.jpg">
 <img src="./design/wireframe/08_루틴 진행.jpg">
 <img src="./design/wireframe/09_운동 진행.jpg">
 <img src="./design/wireframe/10_운동 성공 여부.jpg">
-<img src="./design/wireframe/11_루틴 수정-삭제.jpg">
-<img src="./design/wireframe/12_운동 수정-삭제.jpg">
 
 
 ### ERD

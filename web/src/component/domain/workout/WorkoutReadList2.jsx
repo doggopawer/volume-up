@@ -2,7 +2,7 @@ import PageMoveButton from "../../plain/PageMoveButton";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-const WorkoutReadList = ({routineId}) => {
+const WorkoutReadList2 = ({routineId}) => {
     const [workoutReadState, setWorkoutReadState] = useState([]);
     useEffect(()=> {
         (async()=> {
@@ -15,10 +15,10 @@ const WorkoutReadList = ({routineId}) => {
         <>
             {
                 workoutReadState.map(({id, name}) => (
-                    <PageMoveButton path={`/workout/modify/${id}`} name={name} key={id} />
+                    <PageMoveButton path={`/workout/whether/${id}`} name={name} key={id} />
                 ))
             }
         </>
     )
 }
-export default WorkoutReadList;
+export default WorkoutReadList2;

@@ -22,7 +22,7 @@ function App() {
               <Route path="/routine/management" element={<RoutineManagementPage />} />
               <Route path="/routine/add" element={<RoutineAddPage />} />
               <Route path="/workout/management/:routineId" element={<WorkoutManagementPage />} />
-              <Route path="/workout/add" element={<WorkoutAddPage />} />
+              <Route path="/workout/add/:routineId" element={<WorkoutAddPage />} />
               <Route path="/workout/modify/:workoutId" element={<WorkoutModifyPage/>} />
               <Route path="/routine/progress" element={<RoutineProgressPage />} />
               <Route path="/workout/progress/:routineId" element={<WorkoutProgressPage/>} />

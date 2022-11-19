@@ -1,4 +1,4 @@
-import Button from "../../styled/Button";
+import Button from "../styled/Button";
 import {useNavigate} from "react-router-dom";
 
 const PageMoveButton = ({path, name}) => {
