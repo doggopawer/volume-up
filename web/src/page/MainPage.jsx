@@ -1,30 +1,18 @@
-import Frame from "../component/styled/Frame";
-import HeadBox from "../component/styled/HeadBox";
-import FootBox from "../component/styled/FootBox";
-import BodyBox from "../component/styled/BodyBox";
-import Head from "../component/styled/Head";
-import PageMoveButton from "../component/plain/PageMoveButton";
+import Frame from "../component/styled/concrete/Frame";
+import Layout from "../component/styled/concrete/Layout";
+import Header from "../component/styled/concrete/Header";
 
 const MainPage = () => {
   return (
-      <Frame>
-          <HeadBox>
-            <Head>메인</Head>
-          </HeadBox>
-          <BodyBox>
-              내용 아직 없음
-          </BodyBox>
-          <FootBox>
-            <PageMoveButton
-                path={"/routine/management"}
-                name={"루틴 관리"}
-            />
-            <PageMoveButton
-              path={"/routine/progress"}
-              name={"루틴 진행"}
-            />
-          </FootBox>
-      </Frame>
+      <>
+          <Header/>
+          <Layout>
+              <Frame>
+
+              </Frame>
+          </Layout>
+      </>
+
   )
 }
 export default MainPage;

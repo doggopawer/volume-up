@@ -1,4 +1,4 @@
-import Button from "../../styled/Button";
+import Button from "../../styled/atom/Button";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 

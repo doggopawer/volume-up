@@ -1,17 +1,16 @@
-import HeadBox from "../../component/styled/HeadBox";
-import Head from "../../component/styled/Head";
-import BodyBox from "../../component/styled/BodyBox";
-import FootBox from "../../component/styled/FootBox";
-import PageMoveButton from "../../component/plain/PageMoveButton";
-import Frame from "../../component/styled/Frame";
-import WorkoutCreateButton from "../../component/domain/workout/WorkoutCreateButton";
-import TextArea from "../../component/styled/TextArea";
+import Frame from "../../component/styled/concrete/Frame";
+import TextArea from "../../component/styled/atom/TextArea";
 import {useState} from "react";
 import produce from "immer";
+import Header from "../../component/styled/concrete/Header";
+import Layout from "../../component/styled/concrete/Layout";
+import Box from "../../component/styled/atom/Box";
+import Paragraph from "../../component/styled/atom/Paragraph";
+import WorkoutCreateButton from "../../component/domain/workout/WorkoutCreateButton";
 import {useParams} from "react-router-dom";
 
 const WorkoutAddPage = () => {
-    const { routineId } = useParams();
+    const {routineId} = useParams();
     const [workoutAddState, setWorkoutAddState] = useState({
         name: "",
         weight: "",
@@ -22,52 +21,61 @@ const WorkoutAddPage = () => {
 
     const handleWorkoutAddPageChange = (e) => {
         const {name, value} = e.currentTarget;
-        const nextWorkoutAddState = produce(workoutAddState, draftWorkoutAddState => {
-            draftWorkoutAddState[name] = value;
+        const nextState = produce(workoutAddState, draftState => {
+            draftState[name] = value;
         });
-        console.log(nextWorkoutAddState)
-        setWorkoutAddState(nextWorkoutAddState);
+        setWorkoutAddState(nextState);
     }
     return (
-        <Frame>
-            <HeadBox>
-                <Head>운동 추가</Head>
-            </HeadBox>
-            <BodyBox>
-                <TextArea
-                    placeholder={"이름"}
-                    name={"name"}
-                    value={workoutAddState.name}
-                    onChange={handleWorkoutAddPageChange}
-                />
-                <TextArea
-                    placeholder={"무게"}
-                    name={"weight"}
-                    value={workoutAddState.weight}
-                    onChange={handleWorkoutAddPageChange}
-                />
-                <TextArea
-                    placeholder={"횟수"}
-                    name={"rep"}
-                    value={workoutAddState.rep}
-                    onChange={handleWorkoutAddPageChange}
-                />
-                <TextArea
-                    placeholder={"세트수"}
-                    name={"set"}
-                    value={workoutAddState.set}
-                    onChange={handleWorkoutAddPageChange}
-                />
-            </BodyBox>
-            <FootBox>
-                <WorkoutCreateButton
-                    workoutAddState={workoutAddState}
-                />
-                <PageMoveButton
-                    name={"돌아가기"}
-                />
-            </FootBox>
-        </Frame>
+        <>
+            <Header/>
+            <Layout>
+                <Frame>
+                    <Box direction={"row"} main={"center"} margin={"20px 0"}>
+                        <Paragraph color={"#6B7280"}>
+                            운동 추가
+                        </Paragraph>
+                    </Box>
+                    <Box direction={"column"}>
+                        <Box direction={"column"} margin={"20px 0"}>
+                            <Paragraph>운동 이름</Paragraph>
+                            <TextArea
+                                name={"name"}
+                                value={workoutAddState.name}
+                                onChange={handleWorkoutAddPageChange}
+                            />
+                        </Box>
+                        <Box direction={"column"} margin={"20px 0"}>
+                            <Paragraph>무게</Paragraph>
+                            <TextArea
+                                name={"weight"}
+                                value={workoutAddState.weight}
+                                onChange={handleWorkoutAddPageChange}
+                            />
+                        </Box>
+                        <Box direction={"column"} margin={"20px 0"}>
+                            <Paragraph>횟수</Paragraph>
+                            <TextArea
+                                name={"rep"}
+                                value={workoutAddState.rep}
+                                onChange={handleWorkoutAddPageChange}
+                            />
+                        </Box>
+                        <Box direction={"column"} margin={"20px 0"}>
+                            <Paragraph>세트</Paragraph>
+                            <TextArea
+                                name={"set"}
+                                value={workoutAddState.set}
+                                onChange={handleWorkoutAddPageChange}
+                            />
+                        </Box>
+                    </Box>
+                    <Box>
+                        <WorkoutCreateButton workoutAddState={workoutAddState}/>
+                    </Box>
+                </Frame>
+            </Layout>
+        </>
     )
 }
 export default WorkoutAddPage;

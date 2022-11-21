@@ -1,6 +1,8 @@
-import PageMoveButton from "../../plain/PageMoveButton";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import WorkoutItem from "./WorkoutItem";
+import Paragraph from "../../styled/atom/Paragraph";
+import Box from "../../styled/atom/Box";
 
 const WorkoutReadList = ({routineId}) => {
     const [workoutReadState, setWorkoutReadState] = useState([]);
@@ -14,8 +16,14 @@ const WorkoutReadList = ({routineId}) => {
     return(
         <>
             {
+                workoutReadState.length === 0 ?
+                    <Box direction={"row"} main={"center"} margin={"50px 0"}>
+                        <Paragraph color={"#000"}>
+                            운동 없음...
+                        </Paragraph>
+                    </Box>:
                 workoutReadState.map(({id, name}) => (
-                    <PageMoveButton path={`/workout/modify/${id}`} name={name} key={id} />
+                    <WorkoutItem id={id} name={name} key={id} />
                 ))
             }
         </>

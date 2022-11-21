@@ -1,7 +1,8 @@
-import PageMoveButton from "../../plain/PageMoveButton";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import RoutineDeleteButton from "./RoutineDeleteButton";
+import RoutineItem from "./RoutineItem";
+import Paragraph from "../../styled/atom/Paragraph";
+import Box from "../../styled/atom/Box";
 
 const RoutineReadList = () => {
   const [routineReadState, setRoutineReadState] = useState([]);
@@ -17,10 +18,14 @@ const RoutineReadList = () => {
   return(
       <>
         {
+          routineReadState.length === 0 ? <Box direction={"row"} main={"center"} margin={"50px 0"}>
+                <Paragraph color={"#000"}>
+                  루틴 없음...
+                </Paragraph>
+              </Box> :
           routineReadState.map(({id, name}) => (
               <>
-              <PageMoveButton path={`/workout/management/${id}`} name={name} key={id} />
-              <RoutineDeleteButton id={id} />
+              <RoutineItem id={id} name={name} key={id} />
               </>
           ))
         }

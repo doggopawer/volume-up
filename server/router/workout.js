@@ -6,7 +6,7 @@ const workout = express.Router();
 workout.get('/list/:routineId' , async(req, res) => {
     try {
         const { routineId } = req.params;
-        const [result] = await connection.execute('SELECT * FROM workout WHERE routine_id = ? LIMIT 5' ,[routineId]);
+        const [result] = await connection.execute('SELECT * FROM workout WHERE routine_id = ?' ,[routineId]);
         console.log(result);
         return res.status(201).json({result});
     } catch (e) {

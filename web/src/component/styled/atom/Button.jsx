@@ -2,13 +2,14 @@ import styled from "styled-components";
 
 const Button = styled.button`
   display: inline-block;
-  width: 80vw;
-  height: 10vw;
-  font-size: 4vw;
-  color: #FFF;
-  background: #5E5E5E;
+  box-sizing: border-box;
+  width: 100%;
+  height: 38px;
+  border-radius: 7px;
+  padding: 8px 12px;
+  background: #000;
   border: none;
-  border-radius: 10px;
+  color: #FFF;
 `;
 
 export default Button;

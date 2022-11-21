@@ -1,44 +1,44 @@
-import Button from "../../styled/Button";
+import Button from "../../styled/atom/Button";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import produce from "immer";
 
-const WorkoutSuccessButton = ({workoutWhetherState, setWorkoutWhetherState}) => {
+const WorkoutSuccessButton = ({workoutProgressState, setWorkoutProgressState}) => {
     const navigate = useNavigate();
 
 
     const handleWorkoutSuccessButtonClick = async() => {
-        const {rep} = workoutWhetherState;
+        const {rep} = workoutProgressState;
 
         try {
             if(rep === 5) {
-                const nextWorkoutWhetherState = produce(workoutWhetherState, draftWorkoutWhetherState => {
-                    draftWorkoutWhetherState.weight = draftWorkoutWhetherState.weight+5;
+                const nextWorkoutProgressState = produce(workoutProgressState, draftWorkoutProgressState => {
+                    draftWorkoutProgressState.weight = draftWorkoutProgressState.weight+5;
                 });
-                await axios.put("http://localhost:4000/workout/update", nextWorkoutWhetherState);
+                await axios.put("http://localhost:4000/workout/update", nextWorkoutProgressState);
                 navigate(-1);
-                setWorkoutWhetherState(nextWorkoutWhetherState);
+                setWorkoutProgressState(nextWorkoutProgressState);
                 return;
             }
             if(rep >= 8 && rep <= 11 ) {
-                const nextWorkoutWhetherState = produce(workoutWhetherState, draftWorkoutWhetherState => {
-                    draftWorkoutWhetherState.rep++;
+                const nextWorkoutProgressState = produce(workoutProgressState, draftWorkoutProgressState => {
+                    draftWorkoutProgressState.rep++;
                 })
-                console.log(nextWorkoutWhetherState);
-                await axios.put("http://localhost:4000/workout/update", nextWorkoutWhetherState);
+                console.log(nextWorkoutProgressState);
+                await axios.put("http://localhost:4000/workout/update", nextWorkoutProgressState);
                 navigate(-1);
-                setWorkoutWhetherState(nextWorkoutWhetherState);
+                setWorkoutProgressState(nextWorkoutProgressState);
                 return;
             }
             if (rep === 12) {
-                const nextWorkoutWhetherState = produce(workoutWhetherState, draftWorkoutWhetherState => {
-                    draftWorkoutWhetherState.weight = draftWorkoutWhetherState.weight+5;
-                    draftWorkoutWhetherState.rep = 8;
+                const nextWorkoutProgressState = produce(workoutProgressState, draftWorkoutProgressState => {
+                    draftWorkoutProgressState.weight = draftWorkoutProgressState.weight+5;
+                    draftWorkoutProgressState.rep = 8;
                 })
-                console.log(nextWorkoutWhetherState);
-                await axios.put("http://localhost:4000/workout/update", nextWorkoutWhetherState);
+                console.log(nextWorkoutProgressState);
+                await axios.put("http://localhost:4000/workout/update", nextWorkoutProgressState);
                 navigate(-1);
-                setWorkoutWhetherState(nextWorkoutWhetherState);
+                setWorkoutProgressState(nextWorkoutProgressState);
                 return;
             }
         } catch (e) {

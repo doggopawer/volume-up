@@ -1,4 +1,4 @@
-select * from user;
+select * from routine;
 
 /* 회원가입 */
 INSERT INTO `user`(`email`,`password`)
